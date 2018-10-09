@@ -17,10 +17,10 @@ public class ApiExceptionConfig extends ResponseEntityExceptionHandler {
                                                                   HttpHeaders headers, HttpStatus status,
                                                                   WebRequest request) {
         String error = "Malformed JSON request";
-        return buildResponseEntity(new ApiException(HttpStatus.BAD_REQUEST, error, ex));
+        return buildResponseEntity(new ApiExceptionResponse(HttpStatus.BAD_REQUEST, error, ex));
     }
 
-    private ResponseEntity<Object> buildResponseEntity(ApiException apiException) {
-        return new ResponseEntity<>(apiException, apiException.getStatus());
+    private ResponseEntity<Object> buildResponseEntity(ApiExceptionResponse apiExceptionResponse) {
+        return new ResponseEntity<>(apiExceptionResponse, apiExceptionResponse.getStatus());
     }
 }

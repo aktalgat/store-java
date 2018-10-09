@@ -7,36 +7,36 @@ import org.springframework.http.HttpStatus;
 import java.time.LocalDateTime;
 
 @Data
-public class ApiException {
-    private int statusCode;
+public class ApiExceptionResponse {
+    private int code;
     private HttpStatus status;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     private LocalDateTime timestamp;
     private String message;
     //private String debugMessage;
 
-    private ApiException() {
+    private ApiExceptionResponse() {
         timestamp = LocalDateTime.now();
     }
 
-    public ApiException(HttpStatus status) {
+    public ApiExceptionResponse(HttpStatus status) {
         this();
         this.status = status;
-        this.statusCode = status.value();
+        this.code = status.value();
     }
 
-    public ApiException(HttpStatus status, Throwable ex) {
+    public ApiExceptionResponse(HttpStatus status, Throwable ex) {
         this();
         this.status = status;
-        this.statusCode = status.value();
+        this.code = status.value();
         this.message = "Unexpected error";
         //this.debugMessage = ex.getLocalizedMessage();
     }
 
-    public ApiException(HttpStatus status, String message, Throwable ex) {
+    public ApiExceptionResponse(HttpStatus status, String message, Throwable ex) {
         this();
         this.status = status;
-        this.statusCode = status.value();
+        this.code = status.value();
         this.message = message;
         //this.debugMessage = ex.getLocalizedMessage();
     }
