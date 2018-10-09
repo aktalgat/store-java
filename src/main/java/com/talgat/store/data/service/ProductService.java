@@ -1,8 +1,9 @@
 package com.talgat.store.data.service;
 
-public class ProductService {
+import com.talgat.store.api.payload.ProductSaveRequest;
+import com.talgat.store.data.model.Product;
 
-    public void setProduct() {
-
-    }
+public interface ProductService {
+    Product saveProduct(ProductSaveRequest productSaveRequest);
+    Product saveProduct(Product product);
 }
