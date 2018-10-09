@@ -1,4 +1,4 @@
-package com.talgat.store.api.exception;
+package com.talgat.store.exception;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -13,7 +13,6 @@ public class ApiExceptionResponse {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     private LocalDateTime timestamp;
     private String message;
-    //private String debugMessage;
 
     private ApiExceptionResponse() {
         timestamp = LocalDateTime.now();
@@ -30,7 +29,6 @@ public class ApiExceptionResponse {
         this.status = status;
         this.code = status.value();
         this.message = "Unexpected error";
-        //this.debugMessage = ex.getLocalizedMessage();
     }
 
     public ApiExceptionResponse(HttpStatus status, String message, Throwable ex) {
@@ -38,6 +36,5 @@ public class ApiExceptionResponse {
         this.status = status;
         this.code = status.value();
         this.message = message;
-        //this.debugMessage = ex.getLocalizedMessage();
     }
 }

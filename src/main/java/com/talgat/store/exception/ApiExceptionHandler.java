@@ -1,4 +1,4 @@
-package com.talgat.store.api.exception;
+package com.talgat.store.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -11,7 +11,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @Slf4j
 @ControllerAdvice
-public class ApiExceptionConfig extends ResponseEntityExceptionHandler {
+public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex,
                                                                   HttpHeaders headers, HttpStatus status,
