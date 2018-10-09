@@ -6,7 +6,7 @@ import lombok.Data;
 public class ProductSaveResponse extends AbstractApiResponse {
     private long id;
 
-    public ProductSaveResponse(String message, int id) {
+    public ProductSaveResponse(String message, Long id) {
         super(message);
         this.id = id;
     }
