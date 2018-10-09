@@ -38,4 +38,17 @@ public class Product {
     private List<ProductImage> productImageList = new ArrayList<>();
 
     public Product() {}
+
+    public Product(Long categoryId, String title, String description, String shortDescription, String additionalInfo,
+                   String badge, Double price, Double priceOld, Integer stars) {
+        this.categoryId = categoryId;
+        this.title = title;
+        this.description = description;
+        this.shortDescription = shortDescription;
+        this.additionalInfo = additionalInfo;
+        this.badge = badge;
+        this.price = price;
+        this.priceOld = priceOld;
+        this.stars = stars;
+    }
 }

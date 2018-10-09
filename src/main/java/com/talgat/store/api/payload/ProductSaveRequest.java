@@ -7,7 +7,8 @@ import java.util.List;
 
 @Data
 public class ProductSaveRequest {
-    private String name;
+    private long categoryId;
+    private String title;
     private String description;
 
     @JsonProperty("short_description")
@@ -18,8 +19,8 @@ public class ProductSaveRequest {
     private String badge;
     private double price;
 
-    @JsonProperty("old_price")
-    private double oldPrice;
-    private byte stars;
+    @JsonProperty("price_old")
+    private double priceOld;
+    private int stars;
     private List<String> imageUrls;
 }
