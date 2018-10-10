@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @Slf4j
 @RestController
 public class ProductController {
@@ -19,7 +21,7 @@ public class ProductController {
     }
 
     @PostMapping("/api/product/save")
-    public ProductSaveResponse saveProduct(@RequestBody ProductSaveRequest productSaveRequest) {
+    public ProductSaveResponse saveProduct(@Valid @RequestBody ProductSaveRequest productSaveRequest) {
         log.info("Get request for saving product");
 
         Product product = productService.saveProduct(productSaveRequest);
