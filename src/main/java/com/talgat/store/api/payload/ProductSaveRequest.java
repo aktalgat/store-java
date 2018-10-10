@@ -12,7 +12,7 @@ public class ProductSaveRequest {
     private long categoryId;
 
     @NotNull
-    private String title;
+    private String name;
 
     @NotNull
     private String description;
