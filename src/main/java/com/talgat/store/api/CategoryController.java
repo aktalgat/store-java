@@ -2,6 +2,8 @@ package com.talgat.store.api;
 
 import com.talgat.store.api.payload.CategorySaveRequest;
 import com.talgat.store.api.payload.ItemSaveResponse;
+import com.talgat.store.data.model.Category;
+import com.talgat.store.data.service.CategoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,13 +14,18 @@ import javax.validation.Valid;
 @Slf4j
 @RestController
 public class CategoryController {
+    private CategoryService categoryService;
+
+    public CategoryController(CategoryService categoryService) {
+        this.categoryService = categoryService;
+    }
 
     @PostMapping("/api/category/save")
     public ItemSaveResponse saveCategory(@Valid @RequestBody CategorySaveRequest categorySaveRequest) {
         log.info("Get request for saving category");
 
-        //TODO save category to db
+        Category category = categoryService.saveCategory(categorySaveRequest);
 
-        return new ItemSaveResponse("Category saved", 1L);
+        return new ItemSaveResponse("Category saved", category.getId());
     }
 }
