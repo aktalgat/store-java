@@ -5,7 +5,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
 
-public interface CategoryRepository extends PagingAndSortingRepository {
+public interface CategoryRepository extends PagingAndSortingRepository<Category, Long> {
     @Override
     List<Category> findAll();
 }
