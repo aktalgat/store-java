@@ -1,7 +1,7 @@
 package com.talgat.store.api;
 
 import com.talgat.store.api.payload.ProductSaveRequest;
-import com.talgat.store.api.payload.ProductSaveResponse;
+import com.talgat.store.api.payload.ItemSaveResponse;
 import com.talgat.store.data.model.Product;
 import com.talgat.store.data.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
@@ -21,11 +21,11 @@ public class ProductController {
     }
 
     @PostMapping("/api/product/save")
-    public ProductSaveResponse saveProduct(@Valid @RequestBody ProductSaveRequest productSaveRequest) {
+    public ItemSaveResponse saveProduct(@Valid @RequestBody ProductSaveRequest productSaveRequest) {
         log.info("Get request for saving product");
 
         Product product = productService.saveProduct(productSaveRequest);
 
-        return new ProductSaveResponse("Product saved", product.getId());
+        return new ItemSaveResponse("Product saved", product.getId());
     }
 }
