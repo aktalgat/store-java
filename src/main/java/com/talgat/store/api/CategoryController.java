@@ -13,14 +13,14 @@ import javax.validation.Valid;
 
 @Slf4j
 @RestController
-public class CategoryController {
+public class CategoryController extends AbstractProtectedApi {
     private CategoryService categoryService;
 
     public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
 
-    @PostMapping("/api/category/save")
+    @PostMapping("/category")
     public ItemSaveResponse saveCategory(@Valid @RequestBody CategorySaveRequest categorySaveRequest) {
         log.info("Get request for saving category");
 

@@ -13,14 +13,14 @@ import javax.validation.Valid;
 
 @Slf4j
 @RestController
-public class ProductController {
+public class ProductController extends AbstractProtectedApi {
     private ProductService productService;
 
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
 
-    @PostMapping("/api/product/save")
+    @PostMapping("/product")
     public ItemSaveResponse saveProduct(@Valid @RequestBody ProductSaveRequest productSaveRequest) {
         log.info("Get request for saving product");
 
