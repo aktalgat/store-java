@@ -23,3 +23,6 @@ spring:
       settings:
         trace: false
         web-allow-others: false
+app:
+  jwtSecret: JWTSuperSecretKey
+  jwtExpirationInMs: 604800000
