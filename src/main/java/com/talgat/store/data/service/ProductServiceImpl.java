@@ -3,6 +3,7 @@ package com.talgat.store.data.service;
 import com.talgat.store.api.payload.ProductSaveRequest;
 import com.talgat.store.data.dao.ProductRepository;
 import com.talgat.store.data.model.Product;
+import com.talgat.store.exception.InternalException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product saveProduct(Product product) {
-        Product newProduct = productRepository.save(product);
+        Product newProduct = null;
+        try {
+            newProduct = productRepository.save(product);
+        } catch (Exception e) {
+            throw new InternalException("Internal error in saving");
+        }
         log.info("Saved product: {}", newProduct);
         return newProduct;
     }
