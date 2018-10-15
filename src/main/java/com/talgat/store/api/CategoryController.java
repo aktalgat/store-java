@@ -5,6 +5,7 @@ import com.talgat.store.api.payload.ItemSaveResponse;
 import com.talgat.store.data.model.Category;
 import com.talgat.store.data.service.CategoryService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import javax.validation.Valid;
 
 @Slf4j
 @RestController
+@Secured("ROLE_ADMIN")
 public class CategoryController extends AbstractProtectedApi {
     private CategoryService categoryService;
 
