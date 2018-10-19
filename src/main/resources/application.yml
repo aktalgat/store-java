@@ -26,3 +26,4 @@ spring:
 app:
   jwtSecret: JWTSuperSecretKeyJWTSuperSecretKeyJWTSuperSecretKey
   jwtExpirationInMs: 604800000
+  origin: http://localhost:3000
