@@ -22,7 +22,7 @@ public class ProductController extends AbstractProtectedApi {
         this.productService = productService;
     }
 
-    @PostMapping("/product")
+    @PostMapping("/products")
     public ItemSaveResponse saveProduct(@Valid @RequestBody ProductSaveRequest productSaveRequest) {
         log.info("Get request for saving product");
 
