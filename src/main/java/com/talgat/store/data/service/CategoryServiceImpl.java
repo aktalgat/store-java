@@ -7,6 +7,8 @@ import com.talgat.store.exception.InternalException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -33,5 +35,10 @@ public class CategoryServiceImpl implements CategoryService {
         }
         log.info("Saved category: {}", newCategory);
         return newCategory;
+    }
+
+    @Override
+    public List<Category> getCategoryList() {
+        return categoryRepository.findAll();
     }
 }
