@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -29,5 +30,12 @@ public class CategoryController extends AbstractProtectedApi {
         Category category = categoryService.saveCategory(categorySaveRequest);
 
         return new ItemSaveResponse("Category saved", category.getId());
+    }
+
+    @GetMapping("/categories")
+    public List<Category> getCategoryList() {
+        log.info("Get request for getting all categories");
+
+        return categoryService.getCategoryList();
     }
 }
