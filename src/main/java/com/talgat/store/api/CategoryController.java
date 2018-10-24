@@ -14,7 +14,6 @@ import javax.validation.Valid;
 
 @Slf4j
 @RestController
-@Secured("ROLE_ADMIN")
 public class CategoryController extends AbstractProtectedApi {
     private CategoryService categoryService;
 

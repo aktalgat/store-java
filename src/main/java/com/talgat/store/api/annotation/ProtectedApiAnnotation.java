@@ -1,5 +1,6 @@
 package com.talgat.store.api.annotation;
 
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,5 +12,6 @@ import java.lang.annotation.*;
 @Inherited
 @RequestMapping({"api/protected"})
 @RestController
+@Secured("ROLE_ADMIN")
 public @interface ProtectedApiAnnotation {
 }
