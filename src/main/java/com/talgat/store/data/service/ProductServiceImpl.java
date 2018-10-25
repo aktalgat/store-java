@@ -7,6 +7,8 @@ import com.talgat.store.exception.InternalException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -36,5 +38,10 @@ public class ProductServiceImpl implements ProductService {
         }
         log.info("Saved product: {}", newProduct);
         return newProduct;
+    }
+
+    @Override
+    public List<Product> getProductList() {
+        return productRepository.findAll();
     }
 }
