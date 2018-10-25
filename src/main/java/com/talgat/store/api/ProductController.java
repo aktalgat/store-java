@@ -1,6 +1,6 @@
 package com.talgat.store.api;
 
-import com.talgat.store.api.payload.ProductSaveRequest;
+import com.talgat.store.api.payload.ProductRequest;
 import com.talgat.store.api.payload.ItemSaveResponse;
 import com.talgat.store.data.model.Product;
 import com.talgat.store.data.service.ProductService;
@@ -25,10 +25,10 @@ public class ProductController extends AbstractProtectedApi {
     }
 
     @PostMapping("/products")
-    public ItemSaveResponse saveProduct(@Valid @RequestBody ProductSaveRequest productSaveRequest) {
+    public ItemSaveResponse saveProduct(@Valid @RequestBody ProductRequest productRequest) {
         log.info("Request for saving product");
 
-        Product product = productService.saveProduct(productSaveRequest);
+        Product product = productService.saveProduct(productRequest);
 
         return new ItemSaveResponse("Product saved", product.getId());
     }
