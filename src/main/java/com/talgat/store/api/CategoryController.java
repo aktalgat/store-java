@@ -6,10 +6,7 @@ import com.talgat.store.data.model.Category;
 import com.talgat.store.data.service.CategoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -37,5 +34,12 @@ public class CategoryController extends AbstractProtectedApi {
         log.info("Get request for getting all categories");
 
         return categoryService.getCategoryList();
+    }
+
+    @PutMapping("/categories")
+    public ItemSaveResponse updateCategory(@Valid @RequestBody CategorySaveRequest categorySaveRequest) {
+        log.info("Request for update category");
+
+        return new ItemSaveResponse("Category updated", 0L);
     }
 }
