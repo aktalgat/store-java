@@ -22,7 +22,7 @@ public class CategoryController extends AbstractProtectedApi {
 
     @PostMapping("/categories")
     public ItemSaveResponse saveCategory(@Valid @RequestBody CategorySaveRequest categorySaveRequest) {
-        log.info("Get request for saving category");
+        log.info("Request for saving category");
 
         Category category = categoryService.saveCategory(categorySaveRequest);
 
@@ -31,7 +31,7 @@ public class CategoryController extends AbstractProtectedApi {
 
     @GetMapping("/categories")
     public List<Category> getCategoryList() {
-        log.info("Get request for getting all categories");
+        log.info("Request for getting all categories");
 
         return categoryService.getCategoryList();
     }
