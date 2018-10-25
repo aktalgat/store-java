@@ -1,6 +1,6 @@
 package com.talgat.store.data.service;
 
-import com.talgat.store.api.payload.ProductSaveRequest;
+import com.talgat.store.api.payload.ProductRequest;
 import com.talgat.store.data.dao.ProductRepository;
 import com.talgat.store.data.model.Product;
 import com.talgat.store.exception.InternalException;
@@ -19,7 +19,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product saveProduct(ProductSaveRequest saveRequest) {
+    public Product saveProduct(ProductRequest saveRequest) {
         Product product = new Product(saveRequest.getCategoryId(), saveRequest.getName(), saveRequest.getDescription(),
                 saveRequest.getShortDescription(), saveRequest.getAdditionalInfo(),
                 saveRequest.getBadge(),saveRequest.getPrice(), saveRequest.getPriceOld(),

@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Data
-public class ProductSaveRequest {
+public class ProductRequest {
     @NotNull
     private long categoryId;
 
