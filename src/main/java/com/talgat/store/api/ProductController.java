@@ -6,11 +6,13 @@ import com.talgat.store.data.model.Product;
 import com.talgat.store.data.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -29,5 +31,12 @@ public class ProductController extends AbstractProtectedApi {
         Product product = productService.saveProduct(productSaveRequest);
 
         return new ItemSaveResponse("Product saved", product.getId());
+    }
+
+    @GetMapping("/products")
+    public List<Product> getProductList() {
+        log.info("Get request for getting all products");
+
+        return productService.getProductList();
     }
 }
