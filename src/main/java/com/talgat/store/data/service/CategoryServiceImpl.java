@@ -1,6 +1,6 @@
 package com.talgat.store.data.service;
 
-import com.talgat.store.api.payload.CategorySaveRequest;
+import com.talgat.store.api.payload.CategoryRequest;
 import com.talgat.store.data.dao.CategoryRepository;
 import com.talgat.store.data.model.Category;
 import com.talgat.store.exception.InternalException;
@@ -19,8 +19,8 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Category saveCategory(CategorySaveRequest categorySaveRequest) {
-        Category category = new Category(categorySaveRequest.getName());
+    public Category saveCategory(CategoryRequest categoryRequest) {
+        Category category = new Category(categoryRequest.getName());
 
         return saveCategory(category);
     }

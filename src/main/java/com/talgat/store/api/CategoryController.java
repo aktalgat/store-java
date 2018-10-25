@@ -1,11 +1,10 @@
 package com.talgat.store.api;
 
-import com.talgat.store.api.payload.CategorySaveRequest;
+import com.talgat.store.api.payload.CategoryRequest;
 import com.talgat.store.api.payload.ItemSaveResponse;
 import com.talgat.store.data.model.Category;
 import com.talgat.store.data.service.CategoryService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -21,10 +20,10 @@ public class CategoryController extends AbstractProtectedApi {
     }
 
     @PostMapping("/categories")
-    public ItemSaveResponse saveCategory(@Valid @RequestBody CategorySaveRequest categorySaveRequest) {
+    public ItemSaveResponse saveCategory(@Valid @RequestBody CategoryRequest categoryRequest) {
         log.info("Request for saving category");
 
-        Category category = categoryService.saveCategory(categorySaveRequest);
+        Category category = categoryService.saveCategory(categoryRequest);
 
         return new ItemSaveResponse("Category saved", category.getId());
     }
@@ -37,7 +36,7 @@ public class CategoryController extends AbstractProtectedApi {
     }
 
     @PutMapping("/categories")
-    public ItemSaveResponse updateCategory(@Valid @RequestBody CategorySaveRequest categorySaveRequest) {
+    public ItemSaveResponse updateCategory(@Valid @RequestBody CategoryRequest categoryRequest) {
         log.info("Request for update category");
 
         return new ItemSaveResponse("Category updated", 0L);
