@@ -1,8 +1,10 @@
 package com.talgat.store.api.payload;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class ItemResponse extends AbstractApiResponse {
     private long id;
 
