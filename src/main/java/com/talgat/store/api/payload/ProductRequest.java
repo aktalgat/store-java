@@ -1,6 +1,5 @@
 package com.talgat.store.api.payload;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
@@ -20,11 +19,9 @@ public class ProductRequest {
     private String description;
 
     @NotNull
-    @JsonProperty("short_description")
     private String shortDescription;
 
     @NotNull
-    @JsonProperty("additional_info")
     private String additionalInfo;
 
     @NotNull
@@ -34,7 +31,6 @@ public class ProductRequest {
     private double price;
 
     @NotNull
-    @JsonProperty("price_old")
     private double priceOld;
 
     @NotNull
