@@ -8,6 +8,8 @@ import java.util.List;
 
 @Data
 public class ProductRequest {
+    private long id;
+
     @NotNull
     private long categoryId;
 
