@@ -37,5 +37,5 @@ public class ProductRequest {
     private int stars;
 
     @NotNull
-    private List<String> imageUrls;
+    private List<String> productImageList;
 }
