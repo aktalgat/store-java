@@ -27,7 +27,7 @@ public class ProductController extends AbstractProtectedApi {
     @PostMapping("/products")
     public ItemResponse saveProduct(@Valid @RequestBody ProductRequest productRequest) {
         log.info("Request for saving product");
-
+        log.info("Product request: {}", productRequest);
         Product product = productService.saveProduct(productRequest);
 
         return new ItemResponse("Product saved", product.getId());

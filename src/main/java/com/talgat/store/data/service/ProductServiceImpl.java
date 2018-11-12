@@ -34,6 +34,7 @@ public class ProductServiceImpl implements ProductService {
         try {
             newProduct = productRepository.save(product);
         } catch (Exception e) {
+            log.error("error: {}", e.getMessage());
             throw new InternalException("Internal error in saving");
         }
         log.info("Saved product: {}", newProduct);
