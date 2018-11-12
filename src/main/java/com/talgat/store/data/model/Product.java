@@ -14,8 +14,13 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "category_id")
+    @Column(name = "category_id", insertable = false, updatable = false)
     private Long categoryId;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+    private Category category;
+
 
     private String name;
     private String description;
