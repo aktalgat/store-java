@@ -1,7 +1,9 @@
 package com.talgat.store.data.service;
 
 import com.talgat.store.api.payload.ProductRequest;
+import com.talgat.store.data.dao.CategoryRepository;
 import com.talgat.store.data.dao.ProductRepository;
+import com.talgat.store.data.model.Category;
 import com.talgat.store.data.model.Product;
 import com.talgat.store.exception.InternalException;
 import lombok.extern.slf4j.Slf4j;
@@ -13,17 +15,21 @@ import java.util.List;
 @Service
 public class ProductServiceImpl implements ProductService {
     private ProductRepository productRepository;
+    private CategoryRepository categoryRepository;
 
-    public ProductServiceImpl(ProductRepository productRepository) {
+    public ProductServiceImpl(ProductRepository productRepository, CategoryRepository categoryRepository) {
         this.productRepository = productRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     @Override
     public Product saveProduct(ProductRequest saveRequest) {
+        Category category = categoryRepository.findById(saveRequest.getCategoryId()).get();
         Product product = new Product(saveRequest.getCategoryId(), saveRequest.getName(), saveRequest.getDescription(),
                 saveRequest.getShortDescription(), saveRequest.getAdditionalInfo(),
                 saveRequest.getBadge(),saveRequest.getPrice(), saveRequest.getPriceOld(),
                 saveRequest.getStars());
+        product.setCategory(category);
 
         return saveProduct(product);
     }
