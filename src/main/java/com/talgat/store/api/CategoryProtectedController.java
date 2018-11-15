@@ -12,10 +12,10 @@ import java.util.List;
 
 @Slf4j
 @RestController
-public class CategoryController extends AbstractProtectedApi {
+public class CategoryProtectedController extends AbstractProtectedApi {
     private CategoryService categoryService;
 
-    public CategoryController(CategoryService categoryService) {
+    public CategoryProtectedController(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
 

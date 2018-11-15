@@ -17,10 +17,10 @@ import java.util.List;
 @Slf4j
 @RestController
 @Secured("ROLE_ADMIN")
-public class ProductController extends AbstractProtectedApi {
+public class ProductProtectedController extends AbstractProtectedApi {
     private ProductService productService;
 
-    public ProductController(ProductService productService) {
+    public ProductProtectedController(ProductService productService) {
         this.productService = productService;
     }
 
