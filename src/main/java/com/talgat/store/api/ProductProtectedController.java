@@ -16,7 +16,6 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@Secured("ROLE_ADMIN")
 public class ProductProtectedController extends AbstractProtectedApi {
     private ProductService productService;
 
