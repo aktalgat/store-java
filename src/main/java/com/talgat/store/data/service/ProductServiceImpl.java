@@ -1,40 +1,42 @@
 package com.talgat.store.data.service;
 
 import com.talgat.store.api.payload.ProductRequest;
-import com.talgat.store.data.dao.CategoryRepository;
 import com.talgat.store.data.dao.ProductRepository;
-import com.talgat.store.data.model.Category;
 import com.talgat.store.data.model.Product;
+import com.talgat.store.data.model.ProductImage;
 import com.talgat.store.exception.InternalException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Slf4j
 @Service
 public class ProductServiceImpl implements ProductService {
     private ProductRepository productRepository;
-    private CategoryRepository categoryRepository;
 
-    public ProductServiceImpl(ProductRepository productRepository, CategoryRepository categoryRepository) {
+    public ProductServiceImpl(ProductRepository productRepository) {
         this.productRepository = productRepository;
-        this.categoryRepository = categoryRepository;
     }
 
     @Override
+    @Transactional
     public Product saveProduct(ProductRequest saveRequest) {
-        Category category = categoryRepository.findById(saveRequest.getCategoryId()).get();
         Product product = new Product(saveRequest.getCategoryId(), saveRequest.getName(), saveRequest.getDescription(),
                 saveRequest.getShortDescription(), saveRequest.getAdditionalInfo(),
                 saveRequest.getBadge(),saveRequest.getPrice(), saveRequest.getPriceOld(),
                 saveRequest.getStars());
-        product.setCategory(category);
+        List<ProductImage> list = product.getProductImageList();
+        for (String url : saveRequest.getProductImageList()) {
+            list.add(new ProductImage(url, product));
+        }
 
         return saveProduct(product);
     }
 
     @Override
+    @Transactional
     public Product saveProduct(Product product) {
         Product newProduct = null;
         try {
