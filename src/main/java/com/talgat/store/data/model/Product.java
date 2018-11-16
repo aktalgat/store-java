@@ -14,13 +14,8 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "category_id", insertable = false, updatable = false)
+    @Column(name = "category_id")
     private Long categoryId;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
-    private Category category;
-
 
     private String name;
     private String description;
@@ -38,8 +33,7 @@ public class Product {
     private Double priceOld;
     private Integer stars;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "product_id")
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProductImage> productImageList = new ArrayList<>();
 
     public Product() {}
