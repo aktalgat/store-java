@@ -1,8 +1,8 @@
-#Test project Store
+# Test project Store
 Store project backend in Java using Spring Boot. For storing products used yml file. For checkout transaction
 used H2 embedded database.
 
-###To run project in developer mode
+### To run project in developer mode
 In Linux and macOS
 ```bash
 ./gradlew bootRun
@@ -20,7 +20,7 @@ In Windows
 ```bash
 gradlew.bat bootRun -x buildClient
 ```
-###To build project
+### To build project
 In Linux and macOS
 ```bash
 ./gradlew buildClient bootJar
@@ -29,7 +29,7 @@ In Windows
 ```bash
 gradlew.bat buildClient bootJar
 ```
-###To run jar in production mode
+### To run jar in production mode
 In Linux macOS and Windows 
 ```bash
 java -jar build/libs/bookstore-0.0.1-SNAPSHOT.jar 
