@@ -33,7 +33,7 @@ public class ProductProtectedController extends AbstractProtectedApi {
     }
 
     @GetMapping("/products")
-    public List<Product> getProductList() {
+    public List<Product> getProductPublicList() {
         log.info("Request for getting all products");
 
         return productService.getProductList();

@@ -18,7 +18,7 @@ public class CategoryPublicController extends AbstractPublicApi {
     }
 
     @GetMapping("/categories")
-    public List<Category> getCategoryList() {
+    public List<Category> getCategoryPublicList() {
         log.info("Public api. Request for getting all categories");
 
         return categoryService.getCategoryList();
