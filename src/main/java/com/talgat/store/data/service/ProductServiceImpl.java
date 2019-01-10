@@ -5,15 +5,16 @@ import com.talgat.store.data.dao.ProductRepository;
 import com.talgat.store.data.model.Product;
 import com.talgat.store.data.model.ProductImage;
 import com.talgat.store.exception.InternalException;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Slf4j
 @Service
 public class ProductServiceImpl implements ProductService {
+    private static final Logger log = LoggerFactory.getLogger(ProductServiceImpl.class);
     private ProductRepository productRepository;
 
     public ProductServiceImpl(ProductRepository productRepository) {
@@ -38,7 +39,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     @Transactional
     public Product saveProduct(Product product) {
-        Product newProduct = null;
+        Product newProduct;
         try {
             newProduct = productRepository.save(product);
         } catch (Exception e) {

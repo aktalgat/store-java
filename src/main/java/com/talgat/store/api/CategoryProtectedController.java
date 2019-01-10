@@ -4,15 +4,16 @@ import com.talgat.store.api.payload.CategoryRequest;
 import com.talgat.store.api.payload.ItemResponse;
 import com.talgat.store.data.model.Category;
 import com.talgat.store.data.service.CategoryService;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 
-@Slf4j
 @RestController
 public class CategoryProtectedController extends AbstractProtectedApi {
+    private static final Logger log = LoggerFactory.getLogger(CategoryProtectedController.class);
     private CategoryService categoryService;
 
     public CategoryProtectedController(CategoryService categoryService) {

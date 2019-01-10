@@ -4,14 +4,15 @@ import com.talgat.store.api.payload.CategoryRequest;
 import com.talgat.store.data.dao.CategoryRepository;
 import com.talgat.store.data.model.Category;
 import com.talgat.store.exception.InternalException;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Slf4j
 @Service
 public class CategoryServiceImpl implements CategoryService {
+    private static final Logger log = LoggerFactory.getLogger(CategoryServiceImpl.class);
     private CategoryRepository categoryRepository;
 
     public CategoryServiceImpl(CategoryRepository categoryRepository) {
@@ -27,7 +28,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Category saveCategory(Category category) {
-        Category newCategory = null;
+        Category newCategory;
         try {
             newCategory = categoryRepository.save(category);
         } catch (Exception e) {

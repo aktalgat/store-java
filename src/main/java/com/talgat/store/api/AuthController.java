@@ -3,7 +3,8 @@ package com.talgat.store.api;
 import com.talgat.store.api.payload.AuthRequest;
 import com.talgat.store.api.payload.JwtAuthenticationResponse;
 import com.talgat.store.security.JwtTokenProvider;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -15,9 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
-@Slf4j
 @RestController
 public class AuthController extends AbstractPublicApi {
+    private static final Logger log = LoggerFactory.getLogger(AuthController.class);
     private AuthenticationManager authenticationManager;
     private JwtTokenProvider tokenProvider;
 
