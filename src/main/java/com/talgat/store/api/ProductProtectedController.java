@@ -6,6 +6,7 @@ import com.talgat.store.data.model.Product;
 import com.talgat.store.data.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,7 +30,7 @@ public class ProductProtectedController extends AbstractProtectedApi {
         log.info("Product request: {}", productRequest);
         Product product = productService.saveProduct(productRequest);
 
-        return new ItemResponse("Product saved", product.getId());
+        return new ItemResponse("Product saved", product.getId(), HttpStatus.CREATED);
     }
 
     @GetMapping("/products")

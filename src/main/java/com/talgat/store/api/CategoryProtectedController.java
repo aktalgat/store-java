@@ -6,6 +6,7 @@ import com.talgat.store.data.model.Category;
 import com.talgat.store.data.service.CategoryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -26,7 +27,7 @@ public class CategoryProtectedController extends AbstractProtectedApi {
 
         Category category = categoryService.saveCategory(categoryRequest);
 
-        return new ItemResponse("Category saved", category.getId());
+        return new ItemResponse("Category saved", category.getId(), HttpStatus.CREATED);
     }
 
     @GetMapping("/categories")
