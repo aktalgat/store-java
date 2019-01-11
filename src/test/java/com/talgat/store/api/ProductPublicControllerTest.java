@@ -1,37 +1,32 @@
 package com.talgat.store.api;
 
 import com.talgat.store.data.dao.ProductRepository;
+import com.talgat.store.data.model.Product;
 import com.talgat.store.data.service.ProductService;
-import com.talgat.store.data.service.ProductServiceImpl;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.boot.test.mock.mockito.MockBean;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(MockitoJUnitRunner.class)
 class ProductPublicControllerTest {
 
-    @Mock
+    @MockBean
     ProductRepository productRepository;
 
-    @Mock
+    @MockBean
     ProductService productService;
 
     @InjectMocks
     ProductPublicController publicController;
 
-    @BeforeEach
-    void setUp() {
-        productService = new ProductServiceImpl(productRepository);
-        publicController = new ProductPublicController(productService);
-    }
-
     @Test
     void getProductList() {
-
+        List<Product> list = publicController.getProductList();
     }
 }
