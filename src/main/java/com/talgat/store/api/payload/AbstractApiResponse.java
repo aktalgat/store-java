@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 
 @Data
 public abstract class AbstractApiResponse {
-    private int code = 200;
     private HttpStatus status = HttpStatus.OK;
     private String message;
 
