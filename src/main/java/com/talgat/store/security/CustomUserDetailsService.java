@@ -11,7 +11,6 @@ import javax.transaction.Transactional;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
-
     private UserRepository userRepository;
 
     public CustomUserDetailsService(UserRepository userRepository) {

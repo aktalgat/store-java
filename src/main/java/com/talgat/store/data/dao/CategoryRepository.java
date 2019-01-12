@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CategoryRepository extends PagingAndSortingRepository<Category, Long> {
+
     @Override
     List<Category> findAll();
 

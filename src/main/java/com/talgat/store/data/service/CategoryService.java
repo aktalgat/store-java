@@ -6,7 +6,10 @@ import com.talgat.store.data.model.Category;
 import java.util.List;
 
 public interface CategoryService {
+
     Category saveCategory(CategoryRequest categoryRequest);
+
     Category saveCategory(Category category);
+
     List<Category> getCategoryList();
 }

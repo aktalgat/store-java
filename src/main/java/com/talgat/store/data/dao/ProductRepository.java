@@ -6,6 +6,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import java.util.List;
 
 public interface ProductRepository extends PagingAndSortingRepository<Product, Long> {
+
     @Override
     List<Product> findAll();
 }
