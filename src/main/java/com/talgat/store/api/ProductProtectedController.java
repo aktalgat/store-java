@@ -1,5 +1,6 @@
 package com.talgat.store.api;
 
+import com.talgat.store.api.payload.CategoryRequest;
 import com.talgat.store.api.payload.ProductRequest;
 import com.talgat.store.api.payload.ItemResponse;
 import com.talgat.store.data.model.Product;
@@ -7,10 +8,7 @@ import com.talgat.store.data.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -38,5 +36,12 @@ public class ProductProtectedController extends AbstractProtectedApi {
         log.info("Request for getting all products");
 
         return productService.getProductList();
+    }
+
+    @PutMapping("/products")
+    public ItemResponse updateCategory(@Valid @RequestBody CategoryRequest categoryRequest) {
+        log.info("Request for update product");
+
+        return new ItemResponse("Product updated", 0L);
     }
 }
