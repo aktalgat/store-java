@@ -7,22 +7,26 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(SpringRunner.class)
+@SpringBootTest
 class ProductPublicControllerTest {
 
-    @MockBean
+    @Autowired
     ProductRepository productRepository;
 
-    @MockBean
+    @Autowired
     ProductService productService;
 
-    @InjectMocks
+    @Autowired
     ProductPublicController publicController;
 
     @Test
