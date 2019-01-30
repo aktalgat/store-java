@@ -5,6 +5,7 @@ import com.talgat.store.data.model.Product;
 import com.talgat.store.data.service.ProductService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -21,7 +22,7 @@ class ProductPublicControllerTest {
     @Mock
     ProductService productService;
 
-    @Mock
+    @InjectMocks
     ProductPublicController publicController;
 
     @Test
