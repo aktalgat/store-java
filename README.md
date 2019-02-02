@@ -1,5 +1,5 @@
 # Test project Store
-Store project backend in Java using Spring Boot. For storing products used yml file. For checkout transaction
+Store project backend in Java using Spring Boot. For storing products and checkout transaction
 used H2 embedded database.
 
 ### To run project in developer mode
