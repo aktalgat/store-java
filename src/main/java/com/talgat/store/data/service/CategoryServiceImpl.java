@@ -42,4 +42,14 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> getCategoryList() {
         return categoryRepository.findAll();
     }
+
+    @Override
+    public long update(CategoryRequest categoryRequest) {
+        Category category = categoryRepository.findById(categoryRequest.getId())
+                .orElseThrow(() -> new InternalException("Couldn't find Category with such id"));
+        category.setName(categoryRequest.getName());
+        saveCategory(category);
+
+        return 0;
+    }
 }

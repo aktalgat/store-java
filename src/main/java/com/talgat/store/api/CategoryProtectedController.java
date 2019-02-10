@@ -41,6 +41,8 @@ public class CategoryProtectedController extends AbstractProtectedApi {
     public ItemResponse updateCategory(@Valid @RequestBody CategoryRequest categoryRequest) {
         log.info("Request for update category");
 
-        return new ItemResponse("Category updated", 0L);
+        long id = categoryService.update(categoryRequest);
+
+        return new ItemResponse("Category updated", id);
     }
 }

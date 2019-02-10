@@ -12,4 +12,6 @@ public interface CategoryService {
     Category saveCategory(Category category);
 
     List<Category> getCategoryList();
+
+    long update(CategoryRequest categoryRequest);
 }
