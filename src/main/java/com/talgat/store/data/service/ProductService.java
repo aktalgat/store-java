@@ -12,4 +12,6 @@ public interface ProductService {
     Product saveProduct(Product product);
 
     List<Product> getProductList();
+
+    long update(ProductRequest productRequest);
 }

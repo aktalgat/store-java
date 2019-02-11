@@ -54,4 +54,15 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getProductList() {
         return productRepository.findAll();
     }
+
+    @Override
+    @Transactional
+    public long update(ProductRequest productRequest) {
+        Product product = productRepository.findById(productRequest.getId())
+                .orElseThrow(() -> new InternalException("Couldn't find Product with such id"));
+
+        saveProduct(product);
+
+        return product.getId();
+    }
 }

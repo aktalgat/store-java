@@ -1,6 +1,5 @@
 package com.talgat.store.api;
 
-import com.talgat.store.api.payload.CategoryRequest;
 import com.talgat.store.api.payload.ProductRequest;
 import com.talgat.store.api.payload.ItemResponse;
 import com.talgat.store.data.model.Product;
@@ -39,9 +38,11 @@ public class ProductProtectedController extends AbstractProtectedApi {
     }
 
     @PutMapping("/products")
-    public ItemResponse updateCategory(@Valid @RequestBody CategoryRequest categoryRequest) {
+    public ItemResponse updateCategory(@Valid @RequestBody ProductRequest productRequest) {
         log.info("Request for update product");
 
-        return new ItemResponse("Product updated", 0L);
+        long id = productService.update(productRequest);
+
+        return new ItemResponse("Product updated", id);
     }
 }
