@@ -54,6 +54,6 @@ public class CategoryServiceImpl implements CategoryService {
         category.setName(categoryRequest.getName());
         saveCategory(category);
 
-        return 0;
+        return category.getId();
     }
 }
