@@ -11,7 +11,6 @@ import java.lang.annotation.*;
 @Documented
 @Inherited
 @RequestMapping({"api/protected"})
-@RestController
 @Secured("ROLE_ADMIN")
 public @interface ProtectedApiAnnotation {
 }

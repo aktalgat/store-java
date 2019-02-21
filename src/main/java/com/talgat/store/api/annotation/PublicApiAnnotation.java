@@ -11,6 +11,5 @@ import java.lang.annotation.*;
 @Documented
 @Inherited
 @RequestMapping({"api/public"})
-@RestController
 public @interface PublicApiAnnotation {
 }
