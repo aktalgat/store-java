@@ -26,5 +26,5 @@ spring:
         web-allow-others: false
 app:
   jwtSecret: JWTSuperSecretKeyJWTSuperSecretKeyJWTSuperSecretKey
-  jwtExpirationInMs: 604800000
+  jwtExpirationInMs: 900000
   origin: http://localhost:3000

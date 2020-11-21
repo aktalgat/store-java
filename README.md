@@ -39,7 +39,6 @@ java -jar build/libs/bookstore-0.0.1-SNAPSHOT.jar
 
 **Talgat Akunsartov**
 
-* <https://twitter.com/aktalgatt>
 * <https://github.com/aktalgat>
 
 ## Copyright and license
